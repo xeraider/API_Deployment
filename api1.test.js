@@ -148,3 +148,13 @@ test("Rejects year above current year", () => {
         { message: "Year cannot be invalid" }
     );
 });
+
+// Test 14: Future year
+test("Rejects models with no letters", () => {
+    assert.throws(
+        () => calculateCarValue({
+            model: "123",
+            year: 2028 }),
+        { message: "Model must contain at least one letter" }
+    );
+});

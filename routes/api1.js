@@ -3,6 +3,11 @@ const router = express.Router();
 
 function calculateCarValue(data) {
 
+    // Check if the data is valid
+    if (!data || typeof data !== "object" || Array.isArray(data)) {
+        throw new Error("Invalid input");
+    }
+
     const { model, year } = data;
     let modelValue = 0;
     const alphabet = [
@@ -10,7 +15,7 @@ function calculateCarValue(data) {
         "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
     ]
 
-    // Check if the input is empty
+    // Check if the model or year is empty
     if (!model || !year) {
         throw new Error("Input must not be empty");
     }
@@ -20,6 +25,11 @@ function calculateCarValue(data) {
         throw new Error("Input types cannot be invalid");
     }
 
+    // Check if the model contains at least one letter
+    if (!/[a-z]/i.test(model)) {
+        throw new Error("Model must contain at least one letter");
+    }
+
     // Check if the year is negative or greater than the current year
     if (year < 0 || year > new Date().getFullYear()) {
         throw new Error("Year cannot be invalid");
@@ -27,7 +37,8 @@ function calculateCarValue(data) {
 
     // Calculate the car value based on the model
     for (let letter of model.toLowerCase()) {
-        modelValue += alphabet.indexOf(letter) + 1;
+        const index = alphabet.indexOf(letter);
+        if (index !== -1) { modelValue += index + 1; }
     }
 
     return modelValue * 100 + year;

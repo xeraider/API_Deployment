@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const PORT= 3000;
 
-api.use(express.json());
+app.use(express.json());
 
 const api1Routes = require('./routes/api1');
 const api2Routes = require('./routes/api2');
