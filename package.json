@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "test:api1": "node --test api1.test.js"
   },
   "keywords": [],
   "type": "commonjs",
