@@ -5,17 +5,19 @@ function calculateCarValue(data) {
     const { model, year } = data;
     let carValue = 0;
 
-    const letterValues = {"C": 3, "c": 3, "i": 9, "v": 22}
+    const alphabet = [
+        "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
+        "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
+    ]
 
-    for (let letter of model) {
-        carValue += letterValues[letter];
+    for (let letter of model.toLowerCase()) {
+        carValue += alphabet.indexOf(letter) + 1;
     }
 
     carValue *= 100;
     carValue += year;
 
     return carValue;
-
 }
 
 router.post("/", (req, res) => {
