@@ -22,7 +22,9 @@ module.exports.calculateRiskRating = calculateRiskRating;
 
 function calculateRiskRating(claimHistory) {
     if (typeof claimHistory !== "string" || claimHistory.trim() === "") {
-        return { error: "there is an error" };
+        return {
+            error: "Claim history must contain text and cannot be empty.",
+        };
     }
 
     const keywords = ["collide", "crash", "scratch", "bump", "smash"];
