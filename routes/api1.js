@@ -2,35 +2,35 @@ const express = require('express');
 const router = express.Router();
 
 function calculateCarValue(data) {
+
     const { model, year } = data;
-
-    let carValue = 0;
-
+    let modelValue = 0;
     const alphabet = [
         "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
         "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
     ]
 
+    // Check if the input is empty
     if (!model || !year) {
         throw new Error("Input must not be empty");
     }
 
+    // Check if the input is null
     if (typeof model !== "string" || typeof year !== "number") {
         throw new Error("Input types cannot be invalid");
     }
 
+    // Check if the year is negative or greater than the current year
     if (year < 0 || year > new Date().getFullYear()) {
         throw new Error("Year cannot be invalid");
     }
 
+    // Calculate the car value based on the model
     for (let letter of model.toLowerCase()) {
-        carValue += alphabet.indexOf(letter) + 1;
+        modelValue += alphabet.indexOf(letter) + 1;
     }
 
-    carValue *= 100;
-    carValue += year;
-
-    return carValue;
+    return modelValue * 100 + year;
 }
 
 router.post("/", (req, res) => {
