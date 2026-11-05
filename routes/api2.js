@@ -17,8 +17,11 @@ router.post("/", (req, res) => {
     });
 });
 
+//Makes the API code available to other js files
 module.exports = router;
 module.exports.calculateRiskRating = calculateRiskRating;
+
+// --------------------------------------------------------------//
 
 function calculateRiskRating(claimHistory) {
     if (typeof claimHistory !== "string" || claimHistory.trim() === "") {

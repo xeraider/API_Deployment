@@ -5,13 +5,17 @@ describe("API 2: Driver Risk Rating", () => {
     test("Returns an error for an empty string", () => {
         const result = calculateRiskRating("");
 
-        expect(result).toEqual({ error: "there is an error" });
+        expect(result).toEqual({
+            error: "Claim history must contain text and cannot be empty.",
+        });
     });
 
     test("Returns an error for an incorrect data type", () => {
         const result = calculateRiskRating(12345);
 
-        expect(result).toEqual({ error: "there is an error" });
+        expect(result).toEqual({
+            error: "Claim history must contain text and cannot be empty.",
+        });
     });
 
     test("Returns a risk rating of 2 for multiple keywords", () => {
