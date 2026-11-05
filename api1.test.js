@@ -9,7 +9,7 @@ test("Handles base case correctly", () => {
             model: "Civic",
             year: 2014
         }),
-        { car_value: 6614 }
+        6614
     );
 });
 
@@ -20,7 +20,7 @@ test("Handles lowercase model", () => {
             model: "civic",
             year: 2014
         }),
-        { car_value: 6614 }
+        6614
     );
 });
 
@@ -31,7 +31,7 @@ test("Handles uppercase model", () => {
             model: "CIVIC",
             year: 2014
         }),
-        { car_value: 6614 }
+        6614
     );
 });
 
@@ -42,7 +42,7 @@ test("Calculates first alphabet letter A", () => {
             model: "A",
             year: 2020
         }),
-        { car_value: 2120 }
+        2120
     );
 });
 
@@ -53,7 +53,7 @@ test("Calculates last alphabet letter Z", () => {
             model: "Z",
             year: 2020
         }),
-        { car_value: 4620 }
+        4620
     );
 });
 
@@ -64,7 +64,7 @@ test("Ignores spaces in model", () => {
             model: "A B C",
             year: 2020
         }),
-        { car_value: 2620 }
+        2620
     );
 });
 
@@ -75,7 +75,7 @@ test("Ignores dashes in model", () => {
             model: "A-B-C",
             year: 2020
         }),
-        { car_value: 2620 }
+        2620
     );
 });
 
@@ -86,7 +86,7 @@ test("Ignores digits in model", () => {
             model: "A12BC",
             year: 2020
         }),
-        { car_value: 2620 }
+        2620
     );
 });
 
