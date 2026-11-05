@@ -104,7 +104,7 @@ test("Rejects null model", () => {
         () => calculateCarValue({
             model: null,
             year: 2020 }),
-        { message: "Model input cannot be null" }
+        { message: "Input must not be empty" }
     );
 });
 
@@ -114,7 +114,7 @@ test("Rejects null year", () => {
         () => calculateCarValue({
             model: "Civic",
             year: null }),
-        { message: "Year input cannot be null" }
+        { message: "Input must not be empty" }
     );
 });
 
@@ -124,7 +124,7 @@ test("Rejects incorrect input types", () => {
         () => calculateCarValue({
             model: true,
             year: "2020" }),
-        { message: "Input types cannot be incorrect" }
+        { message: "Input types cannot be invalid" }
     );
 });
 
@@ -135,7 +135,7 @@ test("Rejects negative year", () => {
             model: "Civic",
             year: -1
         }),
-        { message: "Year cannot be negative" }
+        { message: "Year cannot be invalid" }
     );
 });
 
@@ -145,6 +145,6 @@ test("Rejects year above current year", () => {
         () => calculateCarValue({
             model: "Civic",
             year: 2028 }),
-        { message: "Year must be below current year" }
+        { message: "Year cannot be invalid" }
     );
 });
