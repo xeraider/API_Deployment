@@ -149,12 +149,22 @@ test("Rejects year above current year", () => {
     );
 });
 
-// Test 14: Future year
+// Test 14: No letters in model
 test("Rejects models with no letters", () => {
     assert.throws(
         () => calculateCarValue({
             model: "123",
             year: 2028 }),
         { message: "Model must contain at least one letter" }
+    );
+});
+
+// Test 15: Rejects year with decimal cases
+test("Rejects models with no letters", () => {
+    assert.throws(
+        () => calculateCarValue({
+            model: "Civic",
+            year: 2025.2 }),
+        { message: "Year cannot be invalid" }
     );
 });

@@ -30,8 +30,8 @@ function calculateCarValue(data) {
         throw new Error("Model must contain at least one letter");
     }
 
-    // Check if the year is negative or greater than the current year
-    if (year < 0 || year > new Date().getFullYear()) {
+    // Check if the year is a decimal, negative or greater than the current year
+    if (year < 0 || year > new Date().getFullYear() || !Number.isInteger(year)) {
         throw new Error("Year cannot be invalid");
     }
 
