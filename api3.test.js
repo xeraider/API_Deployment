@@ -50,3 +50,31 @@ test("Missing car value", () => {
     risk_rating: 3
   }));
 });
+
+test("Specific error for invalid car value", () => {
+  assert.throws(
+    () => calculateQuote({
+      car_value: -100,
+      risk_rating: 3
+    }),
+    /Invalid car_value: must be a positive number/
+  );
+});
+
+test("Specific error for invalid risk rating", () => {
+  assert.throws(
+    () => calculateQuote({
+      car_value: 6614,
+      risk_rating: 6
+    }),
+    /Invalid risk_rating: must be an integer between 1 and 5/
+  );
+});
+
+test("Specific error for invalid request body", () => {
+  assert.throws(
+    () => calculateQuote(null),
+    /Request body must be a valid JSON object/
+  );
+});
+
