@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const PORT= 3000;
 
+// Parses incoming JSON requests
 app.use(express.json());
 
 const api1Routes = require('./routes/api1');
