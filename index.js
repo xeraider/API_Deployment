@@ -1,16 +1,18 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const PORT= 3000;
+const PORT = 3000;
 
 // Parses incoming JSON requests
 app.use(express.json());
 
-const api1Routes = require('./routes/api1');
-const api2Routes = require('./routes/api2');
-const api3Routes = require('./routes/api3');
+const api1Routes = require("./routes/api1");
+const api2Routes = require("./routes/api2");
+const api3Routes = require("./routes/api3");
 
-app.use("/api1", api1Routes)
-app.use("/api2", api2Routes)
-app.use("/api3", api3Routes)
+app.use("/api1", api1Routes);
+app.use("/api2", api2Routes);
+app.use("/api3", api3Routes);
 
-app.listen(PORT, () => { console.log("Server running"); })
+app.listen(PORT, () => {
+    console.log("Server running");
+});
