@@ -1,7 +1,7 @@
 
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { calculateQuote } = require("./routes/api3");
+const { calculateQuote } = require("../routes/api3");
 
 test("Correct insurance quote", () => {
   const result = calculateQuote({

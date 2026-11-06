@@ -1,6 +1,6 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { calculateCarValue } = require("./routes/api1");
+const { calculateCarValue } = require("../routes/api1");
 
 // Test 1: Start case
 test("Handles base case correctly", () => {
